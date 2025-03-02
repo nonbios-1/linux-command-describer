@@ -44,7 +44,7 @@ def describe_command(command: str) -> str:
     elif base_cmd == "pwd":
         return "Showing current directory path"
     elif base_cmd == "ls":
-        if "-l" in parts:
+        if "-l" in parts or "-la" in parts or "-al" in parts:
             return "Listing directory contents in detailed format"
         return "Listing directory contents"
     elif base_cmd == "mkdir":
@@ -75,7 +75,8 @@ def describe_command(command: str) -> str:
         return f"Changing password for user: {parts[1]}" if len(parts) > 1 else "Changing current user password"
     
     # Fallback for unknown commands
-    return f"Executing: {command[:97]}..." if len(command) > 100 else f"Executing: {command}"
+    description = f"Executing: {command}"
+    return f"{description[:97]}..." if len(description) > 100 else description
 
 if __name__ == "__main__":
     # Example usage
