@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 import unittest
-from command_describer import describe_command
+from linux_command_describer import describe_command
 
 class TestCommandDescriber(unittest.TestCase):
     def test_file_operations(self):
